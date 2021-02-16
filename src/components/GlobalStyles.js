@@ -20,9 +20,23 @@ const GlobalStyle = createGlobalStyle`
 
     nav {
         display: flex;
-        @media (max-width: 600px) {
-            display: none;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 10rem;
+            // laptop View
+        @media (max-width: 992px) {
+            padding: 2rem;
         }
+            // Mobile View
+        @media (max-width: 600px) {
+            padding: 1rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
     }
 `;
 

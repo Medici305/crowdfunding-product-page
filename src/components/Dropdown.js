@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
 // Style
 import styled from 'styled-components';
+// Animation 
+import { motion } from 'framer-motion';
+import { slide, fade, menuAnim } from '../Animation';
+// Router
+import { Link } from 'react-router-dom';
+
 
 const Dropdown = ({ click, setClick }) => {
     return (
         <>
             {click && (
-                <StyleDropDown>
-                    <StyleMenu>
-                        <li>About</li>
-                        <Line></Line>
-                        <li>Discover</li>
-                        <Line></Line>
-                        <li>Get Started</li>
+                <StyleDropDown variants={fade} initial='hidden' animate='show'>
+                    <StyleMenu variants={menuAnim} exit='exit' initial='hidden' animate='show'>
+
+                        <li>
+                            <Link to='/about'>About</Link>
+                            <Line></Line>
+                        </li>
+
+                        <Link to='/discover'>
+                            <li>Discover</li>
+                            <Line></Line>
+                        </Link>
+                        <Link to='/getStarted'>
+                            <li>Get Started</li>
+                        </Link>
                     </StyleMenu>
                 </StyleDropDown>
             )}
@@ -20,7 +34,7 @@ const Dropdown = ({ click, setClick }) => {
     )
 }
 
-const StyleDropDown = styled.div`
+const StyleDropDown = styled(motion.div)`
     @media (max-width: 600px) {
         position: fixed;
         height: 100%;
@@ -34,7 +48,7 @@ const StyleDropDown = styled.div`
     }
 `;
 
-const StyleMenu = styled.ul`
+const StyleMenu = styled(motion.ul)`
     position: absolute;
     display: none;
     @media (max-width: 600px) {
