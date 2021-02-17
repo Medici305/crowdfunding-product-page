@@ -23,6 +23,9 @@ const BookMark = styled.div`
     padding: 2rem 1rem;
     border-radius: .5rem;
     text-align: center;
+    /* box-shadow: 0 0 10px; */
+    //box-shadow: 5px 5px 10px;
+    box-shadow: 2px 2px 10px rgb(169, 169, 169);
 
     img {
         position: absolute;

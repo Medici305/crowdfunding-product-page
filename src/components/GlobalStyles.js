@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Commissioner', sans-serif;
+        background: hsl(0, 0%, 94.11764705882352%);
     }
 
     h2 {
@@ -19,6 +20,20 @@ const GlobalStyle = createGlobalStyle`
         @media (max-width: 600px) {
             font-size: 1.9rem;
         }
+    }
+
+    h3 {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    h5 {
+        color: hsl(176, 50%, 47%);
     }
 
     p {
@@ -56,6 +71,26 @@ const GlobalStyle = createGlobalStyle`
         color: #fff;
     }
 
+    input[type='range'] {
+        width: 100%;
+        -webkit-appearance: none;
+    }
+
+    input[type='range']:focus {
+        outline: none;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+
+    span {
+        color: hsl(0, 0%, 48%);
+        font-size: 1rem;
+        margin-left: .5rem;
+        font-weight: 500;
+    }
+
     button {
         border: none;
         cursor: pointer;
@@ -63,7 +98,10 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 3rem;
         color: #fff;
         font-weight: 700;
-        background: hsl(176, 72%, 28%);
+        background: hsl(176, 50%, 47%);
+        &:hover {
+            background: hsl(176, 72%, 28%);
+        }
     }
 `;
 
