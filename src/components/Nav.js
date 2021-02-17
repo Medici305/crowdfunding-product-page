@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import bgMobile from '../images/image-hero-mobile.jpg';
 import bg from '../images/image-hero-desktop.jpg';
 import logo from '../images/logo.svg';
+// Animation 
+import { motion } from 'framer-motion';
+import { NavAnim, navbarAnim, logoAnim } from '../Animation';
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -14,11 +17,16 @@ const Nav = () => {
     // State
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <StyleNav>
+        <StyleNav variants={NavAnim} initial='hidden' animate='show'>
             <nav>
                 {/* 1.Logo */}
                 <Link to='/'>
-                    <Logo isOpen={isOpen}>
+                    <Logo
+                        variants={logoAnim}
+                        initial='hidden'
+                        animate='show'
+                        isOpen={isOpen}
+                    >
                         <img onClick={() => setIsOpen(false)} src={logo} alt="logo" />
                     </Logo>
                 </Link>
@@ -27,7 +35,12 @@ const Nav = () => {
                     <FontAwesomeIcon size='2x' icon={isOpen ? faTimes : faBars} />
                 </Hamburger>
                 {/* 3. Dropdown Menu */}
-                <Menu isOpen={isOpen}>
+                <Menu
+                    variants={navbarAnim}
+                    initial='hidden'
+                    animate='show'
+                    isOpen={isOpen}
+                >
                     <li onClick={() => setIsOpen(false)}>
                         <Link to='/about'>
                             About
@@ -49,7 +62,7 @@ const Nav = () => {
     )
 }
 
-const StyleNav = styled.div`
+const StyleNav = styled(motion.div)`
     min-height: 60vh;
     background: url(${bg}) no-repeat center scroll;
     background-size: cover;
@@ -62,7 +75,7 @@ const StyleNav = styled.div`
     }
 `;
 
-const Menu = styled.div`
+const Menu = styled(motion.div)`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,7 +108,7 @@ const Menu = styled.div`
     }
 `;
 
-const Logo = styled.div`
+const Logo = styled(motion.div)`
     cursor: pointer;
     @media(max-width: 600px) {
         img {

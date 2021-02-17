@@ -1,20 +1,55 @@
-export const slide = {
-    hide: {
+export const pageTransition = {
+    hidden: {
         opacity: 0,
-        x: '-100%',
+        y: '100%',
     },
     show: {
         opacity: 1,
-        x: 0,
+        y: 0,
         transition: {
-            duration: 1
+            duration: 2,
+            type: 'spring',
+            stiffness: 50,
+            delay: 1
         }
     },
     exit: {
         opacity: 0,
-        x: 500,
+        y: '100%',
         transition: {
             duration: 2
+        }
+    }
+}
+
+export const logoAnim = {
+    hidden: {
+        x: '-100%',
+        opacity: 0
+    },
+    show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            type: 'spring',
+            delay: .6,
+        }
+    },
+}
+
+export const navbarAnim = {
+    hidden: {
+        x: '100%',
+        opacity: 0
+    },
+    show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            type: 'spring',
+            delay: .6,
         }
     }
 }
@@ -54,6 +89,20 @@ export const menuAnim = {
         y: 300,
         transition: {
             duration: .5
+        }
+    }
+}
+
+export const NavAnim = {
+    hidden: {
+        opacity: 0,
+        scale: 1.2
+    },
+    show: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 1.2,
         }
     }
 }

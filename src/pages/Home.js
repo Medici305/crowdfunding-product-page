@@ -3,10 +3,13 @@ import Bookmark from '../components/Bookmark';
 import Donation from '../components/Donation';
 import Detail from '../components/Detail';
 import styled from 'styled-components';
+// Animation
+import { motion } from 'framer-motion';
+import { pageTransition } from '../Animation';
 
 const Home = () => {
     return (
-        <StyleHome>
+        <StyleHome variants={pageTransition} exit='exit' initial='hidden' animate='show' >
             <Container>
 
                 {/* 1. Section One */}
@@ -22,7 +25,7 @@ const Home = () => {
     )
 }
 
-const StyleHome = styled.div`
+const StyleHome = styled(motion.div)`
     //border: 2px solid black;
     position: absolute;
     top: 19rem;
