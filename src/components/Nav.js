@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import bgMobile from '../images/image-hero-mobile.jpg';
 import bg from '../images/image-hero-desktop.jpg';
 import logo from '../images/logo.svg';
-import logo2 from '../images/logo-mastercraft.svg';
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -54,6 +53,7 @@ const StyleNav = styled.div`
     min-height: 60vh;
     background: url(${bg}) no-repeat center scroll;
     background-size: cover;
+    position: relative;
 
     // Mobile View
     @media (max-width: 600px) {
@@ -67,9 +67,6 @@ const Menu = styled.div`
     justify-content: space-between;
     align-items: center;
     position: relative;
-    // laptop View
-    @media (max-width: 992px) {
-    }
     // Mobile view
     @media (max-width: 600px) {
         overflow: hidden;
