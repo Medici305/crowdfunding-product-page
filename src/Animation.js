@@ -7,10 +7,9 @@ export const pageTransition = {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 2,
             type: 'spring',
             stiffness: 50,
-            delay: 1
+            delay: 1,
         }
     },
     exit: {

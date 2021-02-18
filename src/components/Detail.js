@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+// Animation
+import { motion } from 'framer-motion';
+import { Card } from './GlobalStyles';
 
-const Detail = () => {
+const Detail = ({ click, setClick }) => {
     return (
         <StyleDetail>
             <h3>About this project</h3>
@@ -31,7 +34,7 @@ const Detail = () => {
                     </p>
                     <Reward>
                         <h1>101<span>left</span></h1>
-                        <button>Select Reward</button>
+                        <button onClick={() => setClick(true)}>Select Reward</button>
                     </Reward>
                 </Card>
                 {/* Second Card */}
@@ -69,7 +72,7 @@ const Detail = () => {
     )
 }
 
-const StyleDetail = styled.div`
+const StyleDetail = styled(motion.div)`
     background: #fff;
     position: relative;
     padding: 2rem;
@@ -83,16 +86,6 @@ const StyleDetail = styled.div`
 
 const Cards = styled.div`
     //border: 2px solid black;
-`;
-
-const Card = styled.div`
-    padding: 2rem;
-    border: 3px solid hsl(0, 0%, 94.11764705882352%);
-    border-radius: .5rem;
-    margin: 1rem 0;
-    p {
-        margin: 1rem 0;
-    }
 `;
 
 const CardCustom = styled(Card)`

@@ -5,33 +5,67 @@ import Detail from '../components/Detail';
 import styled from 'styled-components';
 // Animation
 import { motion } from 'framer-motion';
-import { pageTransition } from '../Animation';
+import { pageTransition, NavAnim } from '../Animation';
+// Images
+import bgMobile from '../images/image-hero-mobile.jpg';
+import bg from '../images/image-hero-desktop.jpg';
+import Pledge from '../components/Pledge';
 
-const Home = () => {
+
+const Home = ({ click, setClick }) => {
     return (
-        <StyleHome variants={pageTransition} exit='exit' initial='hidden' animate='show' >
-            <Container>
+        <>
+            <Background variants={NavAnim} initial='hidden' animate='show' />
+            <StyleHome>
 
-                {/* 1. Section One */}
-                <Bookmark />
-                {/* 2. Section Two */}
-                <Donation />
-                {/* 3. Section Three */}
-                <Detail />
+                <Container variants={pageTransition} exit='exit' initial='hidden' animate='show'>
 
-            </Container>
+                    {/* 1. Section One */}
+                    <Bookmark />
+                    {/* 2. Section Two */}
+                    <Donation />
+                    {/* 3. Section Three */}
+                    <Detail click={click} setClick={setClick} />
+                </Container>
 
-        </StyleHome>
+            </StyleHome>
+            {click && (
+                <Section>
+                    <Pledge click={click} setClick={setClick} />
+                </Section>
+            )}
+        </>
     )
 }
 
-const StyleHome = styled(motion.div)`
-    //border: 2px solid black;
+const Section = styled.div`
+
+    padding: 2rem 22rem;
+    border: 5px solid red;
+`;
+
+const Background = styled(motion.div)`
     position: absolute;
-    top: 19rem;
+    top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    min-height: 60vh;
+    background: url(${bg}) no-repeat center scroll;
+    background-size: cover;
+
+    // Mobile View
+    @media (max-width: 600px) {
+        background-image: url(${bgMobile});
+        min-height: 45vh;
+    }
+`;
+
+const StyleHome = styled(motion.div)`
+    //border: 2px solid black;
+    position: relative;
+    top: 13rem;
+    left: 0;
+    width: 100%;
     padding: 2rem 22rem;
 
     // laptop View
@@ -45,7 +79,7 @@ const StyleHome = styled(motion.div)`
     }
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     //border: 3px solid blue;
 `;
 

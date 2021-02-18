@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
+// Animation
+import { motion } from 'framer-motion';
 // Icon
 import icon from '../images/logo-mastercraft.svg';
 
@@ -17,7 +19,7 @@ const Bookmark = () => {
     )
 }
 
-const BookMark = styled.div`
+const BookMark = styled(motion.div)`
     background: #fff;
     position: relative;
     padding: 2rem 1rem;

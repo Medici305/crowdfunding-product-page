@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GlobalStyle from './components/GlobalStyles';
 import Nav from './components/Nav';
 import About from './pages/About';
@@ -12,32 +12,32 @@ import { AnimatePresence } from 'framer-motion';
 function App() {
   // Location
   const location = useLocation();
+  // State 
+  const [click, setClick] = useState(false);
   return (
     <>
       <GlobalStyle />
-      <Nav />
+      <Nav click={click} setClick={setClick} />
 
-      <AnimatePresence>
-        <Switch location={location} key={location.pathname}>
+      <Switch location={location} key={location.pathname}>
 
-          <Route path='/' exact>
-            <Home />
-          </Route>
+        <Route path='/' exact>
+          <Home click={click} setClick={setClick} />
+        </Route>
 
-          <Route path='/about'>
-            <About />
-          </Route>
+        <Route path='/about'>
+          <About />
+        </Route>
 
-          <Route path='/discover'>
-            <Discover />
-          </Route>
+        <Route path='/discover'>
+          <Discover />
+        </Route>
 
-          <Route path='/getStarted'>
-            <GetStarted />
-          </Route>
+        <Route path='/getStarted'>
+          <GetStarted />
+        </Route>
 
-        </Switch>
-      </AnimatePresence>
+      </Switch>
 
     </>
   );

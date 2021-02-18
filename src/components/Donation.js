@@ -21,7 +21,8 @@ const Donation = () => {
                 </Doners>
             </Info>
             <Range>
-                <input type="range" value='89' min='0' max='100' />
+                {/* Value need in input */}
+                <input type="range" min='0' max='100' />
                 <TrackDonation></TrackDonation>
             </Range>
         </StyleDonation>

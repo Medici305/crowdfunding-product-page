@@ -6,19 +6,20 @@ import bg from '../images/image-hero-desktop.jpg';
 import logo from '../images/logo.svg';
 // Animation 
 import { motion } from 'framer-motion';
-import { NavAnim, navbarAnim, logoAnim } from '../Animation';
+import { navbarAnim, logoAnim } from '../Animation';
 // Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 // Router
 import { Link } from 'react-router-dom';
 
-const Nav = () => {
+const Nav = ({ click, setClick }) => {
     // State
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <StyleNav variants={NavAnim} initial='hidden' animate='show'>
-            <nav>
+        <>
+            <Shadow click={click} />
+            <nav style={{ position: 'relative', zIndex: '10' }}>
                 {/* 1.Logo */}
                 <Link to='/'>
                     <Logo
@@ -58,9 +59,20 @@ const Nav = () => {
                     </li>
                 </Menu>
             </nav>
-        </StyleNav>
+        </>
     )
 }
+
+const Shadow = styled.div`
+    display: ${({ click }) => (click ? '' : 'none')};;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.9);
+    z-index: 15;
+`;
 
 const StyleNav = styled(motion.div)`
     min-height: 60vh;
@@ -74,6 +86,7 @@ const StyleNav = styled(motion.div)`
         min-height: 45vh;
     }
 `;
+
 
 const Menu = styled(motion.div)`
     display: flex;

@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+// import bgMobile from '../images/image-hero-mobile.jpg';
+// import bg from '../images/image-hero-desktop.jpg';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -84,6 +88,38 @@ const GlobalStyle = createGlobalStyle`
         -webkit-appearance: none;
     }
 
+    input[type='checkbox'] {
+        appearance: none;
+        -webkit-appearance: none;
+        height: 2rem;
+        width: 2rem;
+        border: 2px solid hsl(0, 0%, 94.11764705882352%);
+        border-radius: 2rem;
+        cursor: pointer;
+        outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            border: 2px solid hsl(176, 50%, 47%);
+        }
+        
+    }
+
+    input[type='checkbox']:after {
+        content: '';
+        height: 1rem;
+        width: 1rem;
+        border-radius: 2rem;
+        background: green;
+        display: none;
+    }   
+
+    input[type='checkbox']:checked:after {
+        display: block;
+    }
+
+
     span {
         color: hsl(0, 0%, 48%);
         font-size: 1rem;
@@ -103,6 +139,33 @@ const GlobalStyle = createGlobalStyle`
             background: hsl(176, 72%, 28%);
         }
     }
+
+    svg {
+        cursor: pointer;
+    }
 `;
+
+export const Card = styled.div`
+    padding: 2rem;
+    border: 3px solid hsl(0, 0%, 94.11764705882352%);
+    border-radius: .5rem;
+    margin: 1rem 0;
+    p {
+        margin: 1rem 0;
+    }
+`;
+
+// export const StyleNav = styled(motion.div)`
+//     min-height: 60vh;
+//     background: url(${bg}) no-repeat center scroll;
+//     background-size: cover;
+//     position: relative;
+//     border: 2px solid black;
+//     // Mobile View
+//     @media (max-width: 600px) {
+//         background-image: url(${bgMobile});
+//         min-height: 45vh;
+//     }
+// `;
 
 export default GlobalStyle; 
