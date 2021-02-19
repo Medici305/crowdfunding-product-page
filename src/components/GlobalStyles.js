@@ -135,6 +135,7 @@ const GlobalStyle = createGlobalStyle`
         color: #fff;
         font-weight: 700;
         background: hsl(176, 50%, 47%);
+        outline: none;
         &:hover {
             background: hsl(176, 72%, 28%);
         }
@@ -154,18 +155,5 @@ export const Card = styled.div`
         margin: 1rem 0;
     }
 `;
-
-// export const StyleNav = styled(motion.div)`
-//     min-height: 60vh;
-//     background: url(${bg}) no-repeat center scroll;
-//     background-size: cover;
-//     position: relative;
-//     border: 2px solid black;
-//     // Mobile View
-//     @media (max-width: 600px) {
-//         background-image: url(${bgMobile});
-//         min-height: 45vh;
-//     }
-// `;
 
 export default GlobalStyle; 

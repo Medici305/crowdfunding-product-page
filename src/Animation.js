@@ -105,3 +105,26 @@ export const NavAnim = {
         }
     }
 }
+
+export const PledgeAnim = {
+    hidden: {
+        opacity: 0,
+        scale: .1
+    },
+    show: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 2,
+            type: 'spring'
+        }
+    },
+    exit: {
+        opacity: 0,
+        scale: .1,
+        transition: {
+            duration: 1,
+            type: 'spring'
+        }
+    }
+}

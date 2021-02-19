@@ -2,7 +2,6 @@ import React from 'react';
 import Nav from '../components/Nav';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Pledge from '../components/Pledge';
 import { NavAnim } from '../Animation';
 import bg from '../images/photo-1492138786289-d35ea832da43.jpg';
 
@@ -12,7 +11,6 @@ const About = () => {
         <>
             <Nav />
             <Background variants={NavAnim} initial='hidden' animate='show' />
-            <Pledge />
         </>
     )
 }
