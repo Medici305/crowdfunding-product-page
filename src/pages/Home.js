@@ -1,42 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Nav from '../components/Nav';
 import Bookmark from '../components/Bookmark';
 import Donation from '../components/Donation';
 import Detail from '../components/Detail';
 import styled from 'styled-components';
 // Animation
-import { motion } from 'framer-motion';
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import { pageTransition, NavAnim } from '../Animation';
 // Images
 import bgMobile from '../images/image-hero-mobile.jpg';
 import bg from '../images/image-hero-desktop.jpg';
 import Pledge from '../components/Pledge';
+import { useLocation } from 'react-router-dom';
 
 
-const Home = ({ click, setClick }) => {
+const Home = () => {
+    const location = useLocation();
+    const pathId = location.pathname.split('/')[1];
+    // State 
+    const [open, setOpen] = useState(false);
     return (
         <>
-            <Background variants={NavAnim} initial='hidden' animate='show' />
-            <StyleHome>
+            <AnimateSharedLayout type='crossfade'>
+                <AnimatePresence>
+                    <Pledge open={open} setOpen={setOpen} />
+                </AnimatePresence>
+                <Nav />
+                <Background variants={NavAnim} initial='hidden' animate='show' />
+                <StyleHome>
 
-                <Container variants={pageTransition} exit='exit' initial='hidden' animate='show'>
+                    <Container variants={pageTransition} exit='exit' initial='hidden' animate='show'>
 
-                    {/* 1. Section One */}
-                    <Bookmark />
-                    {/* 2. Section Two */}
-                    <Donation />
-                    {/* 3. Section Three */}
-                    <Detail click={click} setClick={setClick} />
-                </Container>
+                        {/* 1. Section One */}
+                        <Bookmark />
+                        {/* 2. Section Two */}
+                        <Donation />
+                        {/* 3. Section Three */}
+                        <Detail open={open} setOpen={setOpen} />
+                    </Container>
 
-            </StyleHome>
-            {click && (
-                <Section>
-                    <Pledge click={click} setClick={setClick} />
-                </Section>
-            )}
+                </StyleHome>
+            </AnimateSharedLayout>
         </>
     )
 }
+
 
 const Section = styled.div`
 

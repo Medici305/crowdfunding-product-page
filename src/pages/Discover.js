@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../components/Nav';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Pledge from '../components/Pledge';
@@ -9,6 +10,7 @@ import bg from '../images/photo-1582787231487-35f4b800433f.jpg';
 const Discover = () => {
     return (
         <>
+            <Nav />
             <Background variants={NavAnim} initial='hidden' animate='show' />
             <Pledge />
         </>

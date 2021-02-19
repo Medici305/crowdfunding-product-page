@@ -3,8 +3,15 @@ import styled from 'styled-components';
 // Animation
 import { motion } from 'framer-motion';
 import { Card } from './GlobalStyles';
+// Router
+import { Link } from 'react-router-dom';
 
-const Detail = ({ click, setClick }) => {
+const Detail = ({ open, setOpen }) => {
+    // Function 
+    const loadPledgeHandler = () => {
+        document.body.style.overflow = 'hidden';
+        setOpen(!open);
+    }
     return (
         <StyleDetail>
             <h3>About this project</h3>
@@ -34,7 +41,9 @@ const Detail = ({ click, setClick }) => {
                     </p>
                     <Reward>
                         <h1>101<span>left</span></h1>
-                        <button onClick={() => setClick(true)}>Select Reward</button>
+                        {/* <Link to='/pledge'> */}
+                        <button onClick={loadPledgeHandler}>Select Reward</button>
+                        {/* </Link> */}
                     </Reward>
                 </Card>
                 {/* Second Card */}

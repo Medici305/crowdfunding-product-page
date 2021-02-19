@@ -18,8 +18,8 @@ const Nav = ({ click, setClick }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <Shadow click={click} />
-            <nav style={{ position: 'relative', zIndex: '10' }}>
+            {/* <Shadow click={click} /> */}
+            <nav style={{ position: 'relative', zIndex: '1' }}>
                 {/* 1.Logo */}
                 <Link to='/'>
                     <Logo
@@ -62,17 +62,6 @@ const Nav = ({ click, setClick }) => {
         </>
     )
 }
-
-const Shadow = styled.div`
-    display: ${({ click }) => (click ? '' : 'none')};;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0,0,0,.9);
-    z-index: 15;
-`;
 
 const StyleNav = styled(motion.div)`
     min-height: 60vh;
