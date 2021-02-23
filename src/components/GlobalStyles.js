@@ -40,6 +40,11 @@ const GlobalStyle = createGlobalStyle`
         color: hsl(176, 50%, 47%);
     }
 
+    h6 {
+        color: red;
+        margin-top: 1rem;
+    }
+
     p {
         font-size: 1.2rem;
         color: hsl(0, 0%, 48%);
@@ -73,6 +78,13 @@ const GlobalStyle = createGlobalStyle`
     a {
         text-decoration: none;
         color: #fff;
+    }
+
+    input[type='text'] {
+        outline: none;
+        font-size: 1rem;
+        width: 100%;
+        border: none;
     }
 
     input[type='range'] {
@@ -154,6 +166,12 @@ export const Card = styled.div`
     p {
         margin: 1rem 0;
     }
+`;
+
+export const Line = styled.div`
+    margin: 1rem 0;
+    height: .1rem;
+    background: #c1c1c1;
 `;
 
 export default GlobalStyle; 

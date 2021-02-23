@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 // Icon
 import icon from '../images/logo-mastercraft.svg';
 
-const Bookmark = () => {
+const Bookmark = ({ loadPledge }) => {
     return (
         <BookMark>
             <img src={icon} alt="icon-logo" />
             <h2>Mastercraft Bamboo Monitor Riser</h2>
             <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
             <Buttons>
-                <button>Back this project</button>
+                <button onClick={loadPledge}>Back this project</button>
                 <button>Bookmarked</button>
             </Buttons>
         </BookMark>
@@ -27,7 +27,7 @@ const BookMark = styled(motion.div)`
     text-align: center;
     /* box-shadow: 0 0 10px; */
     //box-shadow: 5px 5px 10px;
-    box-shadow: 2px 2px 10px rgb(169, 169, 169);
+    box-shadow: 0 6px 16px 0 rgb(0 0 0 / 20%);;
 
     img {
         position: absolute;

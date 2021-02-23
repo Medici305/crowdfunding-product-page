@@ -16,9 +16,13 @@ import { useLocation } from 'react-router-dom';
 
 const Home = () => {
     const location = useLocation();
-    const pathId = location.pathname.split('/')[1];
     // State 
     const [open, setOpen] = useState(false);
+    // Function 
+    const loadPledgeHandler = () => {
+        document.body.style.overflow = 'hidden';
+        setOpen(!open);
+    }
     return (
         <>
             <AnimateSharedLayout type='crossfade'>
@@ -32,11 +36,11 @@ const Home = () => {
                     <Container variants={pageTransition} exit='exit' initial='hidden' animate='show'>
 
                         {/* 1. Section One */}
-                        <Bookmark />
+                        <Bookmark loadPledge={loadPledgeHandler} />
                         {/* 2. Section Two */}
                         <Donation />
                         {/* 3. Section Three */}
-                        <Detail open={open} setOpen={setOpen} />
+                        <Detail open={open} setOpen={setOpen} loadPledge={loadPledgeHandler} />
                     </Container>
 
                 </StyleHome>

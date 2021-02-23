@@ -6,12 +6,8 @@ import { Card } from './GlobalStyles';
 // Router
 import { Link } from 'react-router-dom';
 
-const Detail = ({ open, setOpen }) => {
-    // Function 
-    const loadPledgeHandler = () => {
-        document.body.style.overflow = 'hidden';
-        setOpen(!open);
-    }
+const Detail = ({ open, setOpen, loadPledge }) => {
+
     return (
         <StyleDetail>
             <h3>About this project</h3>
@@ -42,7 +38,7 @@ const Detail = ({ open, setOpen }) => {
                     <Reward>
                         <h1>101<span>left</span></h1>
                         {/* <Link to='/pledge'> */}
-                        <button onClick={loadPledgeHandler}>Select Reward</button>
+                        <button onClick={loadPledge}>Select Reward</button>
                         {/* </Link> */}
                     </Reward>
                 </Card>
@@ -58,7 +54,7 @@ const Detail = ({ open, setOpen }) => {
                     </p>
                     <Reward>
                         <h1>64<span>left</span></h1>
-                        <button>Select Reward</button>
+                        <button onClick={loadPledge}>Select Reward</button>
                     </Reward>
                 </Card>
                 {/* Third Card */}
